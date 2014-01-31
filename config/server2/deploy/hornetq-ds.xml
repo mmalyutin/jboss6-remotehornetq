@@ -1,0 +1,28 @@
+<connection-factories>
+    <mbean code="org.jboss.jms.jndi.JMSProviderLoader" name="hornetq:service=JMSProviderLoader,name=HornetQJMSProvider">
+         <attribute name="ProviderName">HornetQJMSProvider</attribute>
+         <attribute name="ProviderAdapterClass">org.jboss.jms.jndi.JNDIProviderAdapter</attribute>
+         <attribute name="FactoryRef">XAConnectionFactory</attribute>
+         <attribute name="QueueFactoryRef">XAConnectionFactory</attribute>
+         <attribute name="TopicFactoryRef">XAConnectionFactory</attribute>
+           <attribute name="Properties">
+java.naming.factory.initial=org.jnp.interfaces.NamingContextFactory 
+java.naming.provider.url=jnp://127.0.1.1:1099 
+java.naming.factory.url.pkgs=org.jboss.naming:org.jnp.interfaces 
+</attribute>
+   </mbean>
+    <!-- -->
+    <tx-connection-factory>
+      <jndi-name>HJmsXA</jndi-name>
+      <xa-transaction/>
+      <rar-name>hornetq-ra.rar</rar-name>
+      <connection-definition>org.hornetq.ra.HornetQRAConnectionFactory</connection-definition>
+      <config-property name="SessionDefaultType" type="java.lang.String">javax.jms.Queue</config-property>
+      <config-property name="JmsProviderAdapterJNDI" type="java.lang.String">java:/HornetQJMSProvider</config-property>
+      <max-pool-size>20</max-pool-size>
+      <security-domain-and-application>JmsXARealm</security-domain-and-application>
+      <config-property name="ConnectionParameters" type="java.lang.String">host=127.0.1.1;port=5445</config-property>
+   </tx-connection-factory>
+   <!-- -->
+</connection-factories>
+

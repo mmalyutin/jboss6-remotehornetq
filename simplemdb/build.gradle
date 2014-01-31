@@ -1,0 +1,12 @@
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.hornetq:hornetq-jms-client:2.3.8.Final'
+    compile 'org.jboss.ejb3:jboss-ejb3-ext-api:2.1.0'
+    compile 'org.jboss.spec.javax.ejb:jboss-ejb-api_3.1_spec:1.0.2.Final'
+    testCompile 'junit:junit:4.+'
+}
