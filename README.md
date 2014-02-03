@@ -6,12 +6,20 @@ This projects sets up two JBoss AS 6.1.0.Final server where a message driven bea
 
 These instructions has been tested on Linux (not sure it will work the same on other OSes).
 
-   * ./gradlew clean assemble
-      This will download JBoss AS 6.1.0.Final and setup the two servers
+   * Download JBoss AS 6.1.0.Final and setup the two servers
+
+      `./gradlew clean assemble`
+      
    * In one terminal start server 1
-     build/unpacked/jboss-6.1.0.Final/bin/run.sh -b 127.0.1.1 -c server1
+
+     `build/unpacked/jboss-6.1.0.Final/bin/run.sh -b 127.0.1.1 -c server1`
+
    * In another terminal start server 2
-     build/unpacked/jboss-6.1.0.Final/bin/run.sh -b 127.0.1.2 -c server2
+
+     `build/unpacked/jboss-6.1.0.Final/bin/run.sh -b 127.0.1.2 -c server2`
+
    * Wait for the servers to start completely
+
    * In a third terminal send some messages to server 1
-     ./gradlew postMessages
+
+     `./gradlew postMessages`
